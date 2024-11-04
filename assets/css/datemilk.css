@@ -1,0 +1,34 @@
+table th{
+    position: relative;
+    cursor: pointer;
+    transition: all linear 0.16s;
+}
+table th.asc,
+table th.desc{
+color: red;
+}
+table th[data-sort]:before,
+table th[data-sort]:after{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    right: 0;
+    opacity: 0.3;
+    border: 4px solid transparent;
+
+}
+table th[data-sort]:before{
+    top: 15px;
+    border-bottom-color: red;
+
+}
+table th[data-sort]:after{
+    top:25px;
+    border-top-color:red;
+}
+
+table th.asc:before,
+table th.desc:after{
+    opacity: 1;
+}

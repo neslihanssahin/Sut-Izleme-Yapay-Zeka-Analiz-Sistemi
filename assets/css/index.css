@@ -1,0 +1,71 @@
+
+.info1{
+    display:flex;
+}
+
+.flatgraphic{
+    width: 500px; height: 400px;
+}
+
+.text{
+    flex-direction: column; /* Sıralı şekilde düzenleme */ 
+    margin-left:25px
+}
+
+.totalmilk{
+    display:flex;margin-left:10px; width: 550px; height: 100px; 
+}
+
+
+.symbol{
+    margin-top:30px;
+}
+
+.cattleinfo {
+    margin: 10px;
+    width: 550px;
+    height: 80px;
+    border: 2px solid #007bff;
+}
+
+.cattlelink {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.milking1,
+.milking2{
+    margin:10px; width: 550px; height: 80px; border: 2px solid #007bff;
+}
+.link{
+    color: blue; text-decoration: underline; /* Link olarak görünmesini sağlar */ cursor: pointer; 
+}
+
+
+.preview-box {
+    margin-top: 50px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #fff;
+    max-width: 900px;
+    width: 100%;
+    height: 600px;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 3px;
+    /* padding: 5px 15px 15px 15px; */
+    padding: 0 5px 5px 5px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

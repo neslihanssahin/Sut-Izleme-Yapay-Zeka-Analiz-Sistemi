@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+::selection{
+  color: #fff;
+  background: #007bff;
+}
+body{
+  padding: 10px;
+}
+.wrapper{
+  margin: 100px auto;
+  max-width: 1100px;
+}
+.wrapper nav{
+  display: flex;
+  justify-content: center;
+}
+.wrapper .items{
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  justify-content: space-between;
+}
+.items span{
+  padding: 7px 5px;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #007bff;
+  border-radius: 50px;
+  border: 2px solid #007bff;
+  transition: all 0.3s ease;
+}
+.items span {
+  display: inline-block; /* Öğelerin blok düzende görünmesini sağlar */
+  text-align: center; /* Metni yatayda ortalar */
+  line-height: normal; /* Metnin yüksekliğini düzeltir */
+   width: 100%;  /*Genişlik ayarlanabilir */
+}
+
+.items span.active,
+.items span:hover{
+  color: #fff;
+  background: #007bff;
+}
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  border: 10px; /* Kenarları çizer ve rengini belirler */
+
+}
+.gallery .image {
+  width: calc(100% / 4.5);
+  padding: 7px;
+  margin: 8px;
+  border: 2px solid #ddd; /* Kenarları çizer ve rengini belirler */
+  box-sizing: border-box; /* Kutunun içeriğini, dolgu ve kenarlarını kutunun toplam genişliği ve yüksekliğine dahil eder */
+  border-radius: 50px;
+}
+
+.gallery .image span{
+  display: flex;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  object-fit: cover; /* Resmin kırpılmasını engeller ve boyutunu korur */
+  border-radius: 150px;
+}
+.gallery .image img{
+  width: 100%;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+.gallery .image:hover img{
+  transform: scale(1.1);
+}
+.gallery .image.hide{
+  display: none;
+}
+.gallery .image.show{
+  animation: animate 0.4s ease;
+
+}
+.gallery .image h1,
+.gallery .image p {
+  display: inline-block; /* Öğelerin blok düzende görünmesini sağlar */
+  text-align: center; /* Metni yatayda ortalar */
+  line-height: normal; /* Metnin yüksekliğini düzeltir */
+ 
+}
+@keyframes animate {
+  0%{
+    transform: scale(0.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.preview-box{
+  margin-top: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  max-width: 900px;
+  width: 100%;
+  height: 600px;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 3px;
+  /* padding: 5px 15px 15px 15px; */
+  padding: 0 5px 5px 5px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+
+}
+.preview-box.show{
+  opacity: 1;
+  overflow-y: auto;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3s ease;
+}
+/* Scroll çubuğu */
+.preview-box::-webkit-scrollbar {
+  width: 20px; /* Scroll çubuğunun genişliği */
+ 
+}
+
+/* Scroll track */
+.preview-box::-webkit-scrollbar-track {
+  /* İlk değer: Üst kenar boşluğu ,İkinci değer: Sağ kenar boşluğu,Üçüncü değer: Alt kenar boşluğu,Dördüncü değer: Sol kenar boşluğu */
+  margin: 5px 15px 15px 15px;
+  background: #c2bbbb; /* Scroll track arkaplan rengi */
+  border-radius: 75px; 
+}
+
+/* Scroll çubuğunun rengi */
+.preview-box::-webkit-scrollbar-thumb {
+  background:  #007bff; /* Scroll çubuğu rengi */
+  border-radius: 75px; 
+}
+
+/* Scroll çubuğuna hover edildiğinde */
+.preview-box::-webkit-scrollbar-thumb:hover {
+  background:  #0008ff; /* Scroll çubuğu hover rengi */
+}
+.preview-box .details{
+  padding: 13px 15px 13px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.details .title{
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+}
+.details .title p{
+  font-weight: 500;
+  margin-left: 5px;
+}
+.details .icon{
+  color: #007bff;
+  font-style: 30px;
+  cursor: pointer;
+}
+.preview-box .image-box{
+  width: 250px;
+  display: flex;
+  cursor: pointer;
+}
+.image-box img{
+  margin-left: 25px;
+  height: 250px; 
+  border-radius: 1000px;
+}
+.shadow{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  background: rgba(0,0,0,0.4);
+}
+.shadow.show{
+  display: block;
+}
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.fixed-button button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-button button:hover {
+  background-color: #0056b3;
+}
+
+.accordion-menu {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.accordion-content {
+  padding: 10px;
+}
+
+.show-accordion {
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .gallery .image{
+    width: calc(100% / 3);
+  }
+}
+@media (max-width: 800px) {
+  .gallery .image{
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 700px) {
+  .wrapper nav .items{
+    max-width: 600px;
+  }
+  nav .items span{
+    padding: 7px 15px;
+  }
+}
+@media (max-width: 600px) {
+  .wrapper{
+    margin: 30px auto;
+  }
+  .wrapper nav .items{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav .items span{
+    margin: 5px;
+  }
+  .gallery .image{
+    width: 100%;
+  }
+}
